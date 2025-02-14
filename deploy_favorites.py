@@ -22,6 +22,14 @@ def main():
     # Deploy the contract to a `pyevm` network!
     favorites_contract = boa.load("favorites.vy")
     print(type(favorites_contract))
+
+    starting_fevories_number = favorites_contract.retrieve()
+    print(f"Starting Favorite Number: {starting_fevories_number}")
+
+    favorites_contract.store(5)
+    ending_fevories_number = favorites_contract.retrieve()
+
+    print(f"Ending Favorite Number: {ending_fevories_number}")
     # print("Storing a number...")
     # favorites_contract.store(5)
 
